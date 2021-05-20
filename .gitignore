@@ -1,0 +1,11 @@
+# Emacs tmp files and AUCTEX
+*~
+*/auto/
+auto/
+
+
+# Latex Files
+*.aux
+*.bbl
+*.log
+*.toc
