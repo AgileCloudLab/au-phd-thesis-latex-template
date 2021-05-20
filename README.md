@@ -21,6 +21,10 @@ If you want to clean files such as `.aux` and `.toc` you can run `make clear` wh
 
 ## TexStudio or TexMaker with Make 
 
+Setting up the compilation process in TexStudio and TexMaker using latex commands is none trivial and we recommend you simply use the Makefile and adopt it based on your needs. 
+It will still be possible to build using TexStudio and TexMaker by providing a user defined build option where you simply need to provide `make` as the command used for build. 
+This will run `make` in the root directory. 
+
 # Special Packages
 
 In this section we explain the usage of some special LaTeX packages used in the template that may be novel to you. 
