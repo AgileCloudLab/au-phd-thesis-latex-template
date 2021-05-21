@@ -63,7 +63,7 @@ main:
 
 
 papers:
-	$(bb) $(PAPERS)/example
+	$(bb) $(PAPERS)example
 clear:
 	rm $(latex_auto_generate)
 

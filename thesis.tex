@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Configurations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \thesisPaperSize {a4paper}
+
+%\input{head/settings_epfl_template.tex}     	 %A5 printed on A4 with cropmarks
+\input{template/settings_epfl_templateA5}	 %A5 printed on A5 paper
+\input{template/settings_custom} 			 % place your custom packages, etc... in this file!
+\input{template/commands}
+
+% Glossaries file must be added in the preamble
+% \input{back/glossaries.tex}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+%%%%% Titlepage
+\include{front/titlepage}
+
+
+%%%%% Abstracts
+
+\include{front/abstract_ENG}
+\addcontentsline{toc}{part}{Abstract} % Add to back to TOC. Add as part to make it "top"-level
+
+\include{front/abstract_DK}
+\addcontentsline{toc}{part}{Resumé} % Add to back to TOC. Add as part to make it "top"-level
+
+
+%%%%% Thesis Details
+
+\include{front/thesis_details}
+\addcontentsline{toc}{part}{Thesis Details} % Add to back to TOC. Add as part to make it "top"-level
+
+%%%%% Preface
+\include{front/preface}
+\addcontentsline{toc}{part}{Preface} % Add to back to TOC. Add as part to make it "top"-level
+\null\thispagestyle{empty}
+
+%%%%% Dedication and preface
+\include{front/acknowledgments}
+\addcontentsline{toc}{part}{Acknowledgments} % Add to back to TOC. Add as part to make it "top"-level
+\null\thispagestyle{empty}
+
+
+%%%%% Table of Contents
+\setcounter{tocdepth}{1} %part=-1, chapter=0, section=1, subsection=2, subsubsection=3, paragraph=4
+\currentpdfbookmark{Contents}{table_of_contents}
+\tableofcontents
+\cleardoublepage
+\phantomsection
+
+%%%%% Glossary
+\chapter*{Glossary} % Use start to exclude from numbering (and remove from TOC)
+\addcontentsline{toc}{part}{Glossary} % Add to back to TOC. Add as part to make it "top"-level
+\glssetwidest{ABCDEFGH} % Widest acronym name
+\printnoidxglossary[type=acronym,style=alttree,nonumberlist] % See glossary styles here: https://www.dickimaw-books.com/gallery/glossaries-styles/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% MAIN MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+% \include{main/part_introduction}
+\include{main/background}
+\null\thispagestyle{empty}
+\include{main/objectives}
+\include{main/outline}
+\null\thispagestyle{empty}
+\include{main/contributions}
+\include{main/concl-futurework}
+\null\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% BACK MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Appendices
+%\part{Appendices}\label{Par:Appendix}
+%\appendix
+%\include{back/part_appendix}
+
+%%%%% Bibliography
+% \backmatter
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{part}{Bibliography}
+% \bibliography{back/bibliography}
+
+%%%%% Publications
+%Backmatter disables section numbering. Enable main-matter for the appendix, and disable afterwards
+\part{Publications}\label{part:publications}
+\null\thispagestyle{empty}
+% \include{back/part_publications}
+\include{papers/example}
+%\include{back/paper_hermes}
+%\include{back/paper_alexandria}
+%\include{back/paperC}
+%\include{back/paperD}
+%\include{back/paperE}
+%\include{tail/CoAuthorStatements}
+%\include{tail/cv}
+
+%%%%% Notes for use while writing
+%\listoftodos
+%\include{back/notes}
+\end{document}

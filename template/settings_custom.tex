@@ -1,0 +1,280 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%		Thesis Settings
+%		Custom settings
+%
+%		2011
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%   Use this file for your own custom packages, command-definitions, etc...
+%
+
+% the following lines are for creating a simplified TO-DO box. However since boites is not per default installed with all latex-distributions, we have removed this example again
+% if you want to use it and do not have "boites" installed, you can get it from here: http://www.ctan.org/tex-archive/macros/latex/contrib/boites
+%
+%\usepackage{boites,boites_exemples}
+%\newcommand{\todolist}[1]{\begin{boiteepaisseavecuntitre}{TO DO in this chapter} #1 \end{boiteepaisseavecuntitre}}  % creates a little box
+% %\newcommand{\todolist}[1]{}  % to be used when to do is not to be printed
+\usepackage{makeidx}
+\makeindex
+
+\usepackage[]{nomencl} %Create nmoenclature
+\makenomenclature
+
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+\usepackage{parskip}
+\usepackage{epstopdf}
+\usepackage{subcaption}
+
+\setlength{\parindent}{0em} % Disable indentations of new paragraphs
+% \setlength{\parskip}{0em}
+
+% Reference to chapter and part names
+% See: https://tex.stackexchange.com/questions/62241/how-to-get-the-current-chapter-name-section-name-subsection-name-etc
+\let\Partmark\partmark
+\def\partmark#1{\def\Partname{#1}\Partmark{#1}}
+\let\Chaptermark\chaptermark
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\let\Subsectionmark\subsectionmark
+\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+\let\Subsubsectionmark\subsubsectionmark
+\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
+
+\usepackage[colorinlistoftodos,textwidth={\thesisPaperMarginInner - 2mm}]{todonotes}
+% \usepackage[colorinlistoftodos,textwidth={\thesisPaperMarginInner - 2mm},disable]{todonotes}
+\newcommand{\todonote}[2]{
+	\todo[inline, color=cyan, caption={\Partname~$>$ \Chaptername~$>$  #1}]{
+		\begin{minipage}[t]{\linewidth}
+			\textbf{#1}:
+			#2
+		\end{minipage}
+	}
+}
+\newcommand{\todonotes}[2]{\todonote{#1}{#2}}
+%\newcommand{\note}[2]{#1 : #2}
+\newcommand{\comment}[1]{\todo[size=\scriptsize]{#1}}
+\newcommand{\todoref}[1]{\todo[color=green, size=\tiny, caption={\Partname~$>$ \Chaptername~$>$ #1}]{Ref: #1}}
+\newcommand{\tbc}{\todo[inline, color=yellow, caption={\Partname~$>$ \Chaptername~$>$ To be continued}]{To be continued...}}
+\newcommand{\TBC}{\tbc}
+\newcommand{\pageplaceholder}[1]{\todo[inline, color=red, caption={Placeholder: #1}]{Start of placehoder \\ \vspace{5cm} \huge{#1} \\ \vspace{5cm} \normalsize{End of placeholder}}}
+
+% Allow the thesis to have bib in each chapter
+\usepackage[sectionbib]{chapterbib}
+
+% Hide the section in toc
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% environment for abstracts
+\newenvironment{abstract}{\section*{Abstract}\it}{}
+
+\addto\captionsenglish{%this line is required when using the babel package
+  \renewcommand\bibname{References} % change Bibliography to references
+}
+
+%\newcommand{\pageplaceholder}[1]{\begin{center}\vspace*{\stretch{1}}\rotatebox{45}{\Huge{\textcolor{red}{Placeholder: #1}}}\vspace*{\stretch{1}}\end{center}}
+%\newcommand{\pageplaceholder}[1]{\begin{center}\rotatebox{45}{\Huge{\textcolor{red}{Placeholder: #1}}}\end{center}}
+
+%\usepackage{bitfoot} %make wonders to 
+\usepackage{catchfilebetweentags}
+\usepackage{wrapfig}
+
+\usepackage{adjustbox} %Makes it possible to scale tables, if they are too big
+\usepackage[final]{pdfpages}
+
+\newcommand{\csubfloat}[2][]{%
+  \makebox[0pt]{\subfloat[#1]{#2}}%
+}
+
+\usepackage{placeins} % Makes it possible to use floatbarriers = all declaired float before this point has to be printed
+
+\usepackage{rotating} %Make it possible to rotate tables etc.
+\usepackage{lscape}
+\usepackage{bibentry} %Print bib entry in txt
+\usepackage{nicefrac}
+
+\usepackage{longtable,tabu}
+
+\usepackage{afterpage} %Make it possible to place figure on odd/even page
+
+\usepackage{multicol}
+
+\usepackage{float}  % For using "H" to position figures
+
+\usepackage{enumitem} % Make custom enumerations
+
+\usepackage{epigraph} % To make quotes (https://tex.stackexchange.com/questions/53377/inspirational-quote-at-start-of-chapter)
+
+\usepackage{csquotes} % To make different types of quotes (https://da.sharelatex.com/learn/Typesetting_quotations)
+
+\usepackage[binary-units=true,separate-uncertainty=true,multi-part-units=single]{siunitx}	% Write SI units properly
+
+%\usepackage[a4,pdflatex,center, cam]{crop}
+
+% For equations:
+\usepackage{dsfont}								% For math symbols
+\DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
+\SetMathAlphabet{\mathsfit}{bold}{\encodingdefault}{\sfdefault}{bx}{n}
+\newcommand{\tens}[1]{\bm{\mathsfit{#1}}}
+\def\tA{{\tens{A}}}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}  % To number equations written using \begin{align*}
+
+% For theorem:
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+% \newenvironment{proof}{\begin{IEEEproof}}{\end{IEEEproof}}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% % %
+%Bruges til at resette chapter couter ved ny part
+%\makeatletter
+%\@addtoreset{chapter}{part}
+%\makeatother  
+% % %
+
+% Acronyms and glossaries
+%\usepackage{etoolbox}
+\usepackage[acronym,nomain,shortcuts]{glossaries} % [nonumberlist]
+\renewcommand{\glossarysection}[2][]{} % Hack to remove titles from glossary lists
+%\makeatletter
+%
+%\appto\newacronymhook{%
+%  \newbool{glo@\the\glslabeltok @usedonlyonce}% define an additional switch per acronym
+%}
+%
+%\patchcmd{\@gls@}{%
+%  \glsunset{#2}%
+%}{% write appropriate information to the main auxiliary file
+%  \ifglsused{#2}{%
+%    \write\@auxout{\global\setbool{glo@#2@usedonlyonce}{false}}%
+%  }{%
+%    \write\@auxout{\global\setbool{glo@#2@usedonlyonce}{true}}%
+%  }%
+%  \glsunset{#2}%
+%}{}{}
+%
+%\patchcmd{\@gls@}{%
+%  \glsentryfirst{#2}%
+%}{% print the long form of the acronym if the acronym is used only once
+%  \ifbool{glo@#2@usedonlyonce}{\glsentrylong{#2}}{\glsentryfirst{#2}}%
+%}{}{}
+%
+%\makeatother
+\makenoidxglossaries
+%\input{template/glossaries.tex}
+
+\usepackage{lipsum}
+
+%% Matlab2tikz
+\usepackage{pgfplots}
+  \pgfplotsset{width=.83\textwidth,compat=newest}
+  %% the following commands are needed for some matlab2tikz features
+  \usetikzlibrary{plotmarks}
+  \usetikzlibrary{arrows.meta}
+  \usepgfplotslibrary{patchplots}
+  \usepackage{grffile}
+  
+\newenvironment{horizontallegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \pgfplots@init@cleared@structures
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \pgfplots@createlegend
+    \endgroup
+}%
+
+
+%% Collection of papers
+%\usepackage{collect}
+%\definecollection{papers}
+%\newcounter{PapersCounter}
+%\makeatletter
+%\newenvironment{paper}[3]
+%  {\@nameuse{collect}{papers}{}
+%    {}
+%    {\clearpage \stepcounter{PapersCounter} \chapter*{Paper \thePapersCounter}\addcontentsline{toc}{section}{Paper \thePapersCounter : #1}\textbf{#1}\\\textit{#2}\\ \vspace{10 mm}\\#3\newpage}
+%    {}%
+%  }
+%{\@nameuse{endcollect}}
+%\makeatother
+
+\usepackage{bookmark}
+\usepackage{fontawesome5} % font awesome                                                                                                            
+                                                                                                            \usepackage{textcomp}
+                                                                                                            \usepackage{pifont}
+
+                                                                                                            \usepackage{adjustbox}
+
+% Collection of papers
+\usepackage{collect}
+\definecollection{papers}
+\newcounter{PapersCounter}
+\makeatletter
+\newenvironment{paper}[6]
+{\@nameuse{collect}{papers}{}
+    {}
+    {\clearpage \stepcounter{PapersCounter} \paperlabel{#1}{\thePapersCounter} \chapter*{Paper \thePapersCounter}\addcontentsline{toc}{section}{Paper \thePapersCounter : #2}\textbf{#2}\\\textit{#3}\\ \vspace{10 mm}\\#4 \vspace{10 mm}\\#5 \vspace{0 mm}\\\textit{#6} \newpage}
+    {}%
+}
+{\@nameuse{endcollect}}
+\makeatother
+
+%
+
+% Paper referencing
+\makeatletter
+\newcommand{\paperlabel}[2]{%
+    \protected@write \@auxout {}{\string \newlabel {#1}{{Paper #2}{\thepage}{#2}{#1}{}} }%
+    \hypertarget{#1}{}
+}
+\makeatother
+
+
+
+% For subgrous in tables
+\newcommand{\rowgroup}[1]{\hspace{-1em}#1}
+
+% For centering in fixed width columnds 
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{tabularx}
+
+\makeatletter % Redefinition of Description List Items source: https://tex.stackexchange.com/a/1248/13552
+\let\orgdescriptionlabel\descriptionlabel
+\renewcommand*{\descriptionlabel}[1]{%
+  \let\orglabel\label
+  \let\label\@gobble
+  \phantomsection
+  \edef\@currentlabel{#1\unskip}%
+  %\edef\@currentlabelname{#1}%
+  \let\label\orglabel
+  \orgdescriptionlabel{#1}%
+}
+                                                                                                            \makeatother
+
+                                                                                                            \usepackage[abbreviations]{foreign}  % For \ie, \eg \etc
+                                                                                                            \newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+{ \newcommand{\mynote}[3]{
+   \fbox{\bfseries\sffamily\scriptsize#1}
+   {\small$\blacktriangleright$\textsf{\emph{\color{#3}{#2}}}$\blacktriangleleft$}}}
+{ \newcommand{\mynote}[3]{}}
+\newcommand{\vs}[1]{\mynote{Valerio}{#1}{blue}}
+\newcommand{\pf}[1]{\mynote{Pascal}{#1}{pink}}
+\newcommand{\lar}[1]{\mynote{Lars}{#1}{red}}
+\newcommand{\dl}[1]{\mynote{Daniel}{#1}{green}}
+\newcommand{\db}[1]{\mynote{Dorian}{#1}{magenta}}
+\newcommand{\sys}{\textsc{MinervaFS}\xspace}
