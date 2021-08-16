@@ -5,8 +5,6 @@
 
 %\input{head/settings_epfl_template.tex}     	 %A5 printed on A4 with cropmarks
 \input{template/settings_epfl_templateA5}	 %A5 printed on A5 paper
-\input{template/settings_custom} 			 % place your custom packages, etc... in this file!
-\input{template/commands}
 
 % Glossaries file must be added in the preamble
 % \input{back/glossaries.tex}
@@ -65,13 +63,10 @@
 \mainmatter
 % \include{main/part_introduction}
 \include{main/background}
-\null\thispagestyle{empty}
 \include{main/objectives}
 \include{main/outline}
-\null\thispagestyle{empty}
 \include{main/contributions}
 \include{main/concl-futurework}
-\null\thispagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% BACK MATTER
@@ -92,7 +87,7 @@
 %%%%% Publications
 %Backmatter disables section numbering. Enable main-matter for the appendix, and disable afterwards
 \part{Publications}\label{part:publications}
-\null\thispagestyle{empty}
+% \null\thispagestyle{empty}
 % \include{back/part_publications}
 \include{papers/example}
 %\include{back/paper_hermes}

@@ -42,4 +42,10 @@ In this section we explain the usage of some special LaTeX packages used in the 
 
 ## Chapterbib
 
+# Package options 
+
+## xcolor -> svgnames, dvinames
+
+
+
 

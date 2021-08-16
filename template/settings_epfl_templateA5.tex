@@ -1,18 +1,26 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Template Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Purpose: PhD Thesis LaTeX template
+% Institution: Aarhus University Department of Electrical and Computer Engineering
+% Website: https://github.com/AgileCloudLab/au-phd-thesis-latex-template/
+% The template provides a base skeleton for 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %
-%		Thesis Settings
+%		PhD Thesis settings 
 %
 %		EDOC Template
 %		2011
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Document layout setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifx \thesisPaperSize \undefined
 	\def \thesisPaperSize {a4paper}
 \fi
 
-\pdfminorversion=4
-\documentclass[\thesisPaperSize,11pt,oneside,svgnames,dvinames,dvipsnames]{book}
+
+\documentclass[\thesisPaperSize, 11pt, twoside, openright, svgnames, dvinames, dvipsnames, table]{book}
 
 \usepackage{xstring}
 
@@ -28,79 +36,18 @@
 	\def \thesisPaperMarginBottom {14mm}
 	\def \thesisPaperMarginInner {18mm}
 	\def \thesisPaperMarginOuter {18mm}
-}{}
+      }{}
 
-
-\usepackage{bookman} % Select bookman font type. Similar to Georgia
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[danish,english]{babel}
-
-\usepackage{cite}
-\usepackage[\thesisPaperSize,top=\thesisPaperMarginTop,bottom=\thesisPaperMarginBottom,inner=\thesisPaperMarginInner,outer=\thesisPaperMarginOuter]{geometry}
-
-
-\newcommand{\pdfIncludeScale}{1.0} %
-
-\usepackage{fourier} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
-
+\usepackage[\thesisPaperSize, top=\thesisPaperMarginTop, bottom=\thesisPaperMarginBottom, inner=\thesisPaperMarginInner, outer=\thesisPaperMarginOuter]{geometry}
 
 \setlength{\headheight}{13.6pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Define colors for the AU palette.
-% See: http://medarbejdere.au.dk/administration/kommunikation/omdesignet/farver/
-\usepackage[table]{xcolor}
-
-\definecolor{AU_Blue}{RGB}{0,61,115}
-\definecolor{AU_BlueDark}{RGB}{0,37,70}
-\definecolor{AU_Purple}{RGB}{101,90,159}
-\definecolor{AU_PurpleDark}{RGB}{40,28,65}
-\definecolor{AU_Cyan}{RGB}{55,160,203}
-\definecolor{AU_CyanDark}{RGB}{0,62,92}
-\definecolor{AU_Turquoise}{RGB}{0,171,164}
-\definecolor{AU_TurquoiseDark}{RGB}{0,69,67}
-\definecolor{AU_Green}{RGB}{139,173,63}
-\definecolor{AU_GreenDark}{RGB}{66,88,33}
-\definecolor{AU_Yellow}{RGB}{250,187,0}
-\definecolor{AU_YellowDark}{RGB}{99,75,3}
-\definecolor{AU_Orange}{RGB}{238,127,0}
-\definecolor{AU_OrangeDark}{RGB}{95,52,8}
-\definecolor{AU_Red}{RGB}{226,0,26}
-\definecolor{AU_RedDark}{RGB}{91,12,12}
-\definecolor{AU_Magenta}{RGB}{226,0,122}
-\definecolor{AU_MagentaDark}{RGB}{95,0,48}
-\definecolor{AU_Gray}{RGB}{135,135,135}
-\definecolor{AU_GrayDark}{RGB}{75,75,74}
-
-\definecolor{AU_Black}{RGB}{0,0,0}
-\definecolor{AU_White}{RGB}{255,255,255}
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\newcounter{figcnt}
-\usepackage{graphicx}
-
 
 \usepackage{setspace} % increase interline spacing slightly
 \setstretch{1.1}
-%\singlespacing
 \onehalfspacing
-%\doublespacing
 
-\usepackage[font=small]{caption}
-\captionsetup{format=hang}
-
-\usepackage{enumitem}
-\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-
-\makeatletter
-\setlength{\@fptop}{0pt}  % for aligning all floating figures/tables etc... to the top margin
-\makeatother
-
-\usepackage{booktabs}
-\usepackage{lipsum}
-\usepackage{microtype} %Optimeret typesetting (afstand mellem bogstaver mm)
-\usepackage[hyphens]{url} 
-\usepackage[final]{pdfpages}
+\usepackage{parskip}
+\setlength{\parindent}{0em} % Disable indentations of new paragraphs
 
 \usepackage{fancyhdr}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
@@ -125,57 +72,100 @@
 %	\fancyfoot[RO,LE]{\thepage}
 	\fancyfoot[C]{\thepage}
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Document layout setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{listings}
-\lstset{language=[LaTeX]Tex,tabsize=4, basicstyle=\scriptsize\ttfamily, showstringspaces=false, numbers=none, numberstyle=\tiny, numbersep=10pt, breaklines=true, breakautoindent=true, breakindent=10pt, escapeinside={(*@}{@*)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Font and Language Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{bookman} % Select bookman font type. Similar to Georgia
+\usepackage{fourier} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[danish,english]{babel}
+\usepackage{microtype} %Optimise typesetting (distance between characters in m)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Font and Language Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{hyperref}
-\hypersetup{pdfborder={0 0 0},
-%	colorlinks=true,
-	linkcolor=black,
-	citecolor=black,
-	urlcolor=black}
-\urlstyle{same}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Colour Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\definecolor{AU_Black}{RGB}{0,0,0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [END] COLOUR SETUP%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Maths Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
-\usepackage{amsthm}             % To Provide the environment proof
-\usepackage[noabbrev]{cleveref} % Load after hyperref to make clickable links
+\usepackage{amsthm} % Provides the environment proof
 
+% Fix the problem with delimiter size caused by fourier and amsmath packages.
+\makeatletter
+\def\resetMathstrut@{%
+  \setbox\z@\hbox{%
+    \mathchardef\@tempa\mathcode`\(\relax
+      \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+      \expandafter\@tempb\meaning\@tempa \relax
+  }%
+  \ht\Mathstrutbox@1.2\ht\z@ \dp\Mathstrutbox@1.2\dp\z@
+}
+\makeatother
+
+\widowpenalty 10000
+\clubpenalty 10000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Maths Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Figure and Default graphics Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subcaption} % Introduce subfigure and other nice things
+% The caption package is used for subfloats and caption editing
+% The format=hang option make a small indent of the caption so the lines "hang" under each other.
+% This can be removed or change to format=plain to avoid the indentation
+\usepackage[font=small, format=hang]{caption}
+\usepackage[final]{pdfpages} % Allows for PDF including in the thesis using \includepdf{}
+
+\usepackage[bottom]{footmisc} % Place footnotes below figures
 
 \makeatletter
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-    \hbox{}
-    \thispagestyle{empty}
-    \newpage
-    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
-\makeatother \clearpage{\pagestyle{plain}\cleardoublepage}
+\setlength{\@fptop}{0pt}  % for aligning all floating figures/tables etc... to the top margin
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Figure and Default graphics Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Settings for itemised lists Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [Stop] Settings for itemised lists Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Tikz %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tikz are used to draw the chapter and part sections 
+\usepackage{tikz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Tikz %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] booktabs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This package provides nice commands for the default table environment in LaTeX
+\usepackage{booktabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] booktabs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] cite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Improved citation 
+\usepackage{cite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] cite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+
+
+
+
+
+
+
+
+
 
 
 %%%%% CHAPTER HEADER %%%%
-\usepackage{color}
-\usepackage{tikz}
+
+
 \usepackage[explicit]{titlesec}
 
-% Fix bug in package{titlesec} with missing section numbers
-% See: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
-\patchcmd{\ttlh@hang}{\noindent}{}{}{}
-\makeatother
 
 
-%\titleclass{\part}{top}
-%\titleclass{\chapter}{top}
-
-%MD redefined mar 2017. Tillad chapter på alle sider, men uden at aendre part, saa part stadig kun starter på hoejre
-\makeatletter
-\renewcommand\chapter{\clearpage
-                    \thispagestyle{plain}%
-                    \global\@topnum\z@
-                    \@afterindentfalse
-                    \secdef\@chapter\@schapter}
-\makeatother
-% end MD redefined mar 2017
 
 
 
@@ -230,32 +220,36 @@
    \gdef\partlabel{}
   } % code before the title body
 
-% % Modify section colors
-%\titleformat{\section}
-%{\normalfont\Large\bfseries}
-%{{\color{AU_Black}\thesection\hskip 11pt  #1}}
-%{0pt}
-%{}
-%Mads' type
+
 \titleformat{\section}[hang]
 {\normalfont\Large\bfseries\color{AU_Black}}
 {\thesection\hskip 11pt}
 {0em}
-{ #1}
+{#1}
 
-% Fix the problem with delimiter size caused by fourier and amsmath packages.
-\makeatletter
-\def\resetMathstrut@{%
-  \setbox\z@\hbox{%
-    \mathchardef\@tempa\mathcode`\(\relax
-      \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
-      \expandafter\@tempb\meaning\@tempa \relax
-  }%
-  \ht\Mathstrutbox@1.2\ht\z@ \dp\Mathstrutbox@1.2\dp\z@
-}
-\makeatother
 
-\widowpenalty 10000
-\clubpenalty 10000
 
-\usepackage[bottom]{footmisc} % Place footnotes below figures
+
+\usepackage[hyphens]{url}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Include custom settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{template/settings_custom}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Include custom settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Include our commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{template/commands}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Include our commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Set up External and Internal References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0},
+%	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=black}
+\urlstyle{same}
+\usepackage[noabbrev]{cleveref} % Load after hyperref to make clickable links
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Set up External and Internal References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
