@@ -5,6 +5,17 @@ We suggest that you use this template for your PhD thesis.
 
 The template expects you to use `pdfdlatex` for compilation of latex code and `bibtex` for bibliography compilation. 
 
+# Setup for you 
+
+In `template/commands.tex` replace: 
+
+- `<STUDENT>` with your full name 
+- `<SUPERVISOR>` with your supervisors full name 
+- `<THESIS TITLE>` with your thesis title 
+- `<MONTH>` with your hand in month 
+
+
+
 # Build 
 
 ## Setup 
