@@ -36,6 +36,10 @@ Setting up the compilation process in TexStudio and TexMaker using latex command
 It will still be possible to build using TexStudio and TexMaker by providing a user defined build option where you simply need to provide `make` as the command used for build. 
 This will run `make` in the root directory. 
 
+# Glossaries
+
+Glossaries are setup to work without using `makeglossaries` and you can define your abbreviations in the `back/glossaries.tex` file. 
+
 # Special Packages
 
 In this section we explain the usage of some special LaTeX packages used in the template that may be novel to you. 
@@ -72,6 +76,17 @@ The original template came with this configuration for todonotes
 \newcommand{\TBC}{\tbc}
 \newcommand{\pageplaceholder}[1]{\todo[inline, color=red, caption={Placeholder: #1}]{Start of placehoder \\ \vspace{5cm} \huge{#1} \\ \vspace{5cm} \normalsize{End of placeholder}}}
 ```
+
+# pgfplots 
+
+A package for making plots in raw latex.
+For basic configuration add
+
+```latex
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+```
+You can additionally set a general width of plots, by adding `width=<WIDTH>` to the `\pgfplotsset` configuration where with is the width you want.  
 
 
 
