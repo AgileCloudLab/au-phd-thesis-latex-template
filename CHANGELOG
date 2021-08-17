@@ -1,0 +1,6 @@
+# 1.0.0
+
+- Moving from original EDOC / EPFL template to our custom theme
+- Moved need `\usepackage` and custom settings to the default template file
+- Renamed the template file to `preamble.tex`
+- Added embedded PDF information in `thesis.tex`

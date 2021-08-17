@@ -1,5 +1,5 @@
 cc = pdflatex
-bb = biblatex
+bb = bibtex
 
 student = student
 year = year
@@ -32,38 +32,23 @@ contributions = $(MAIN)contributions
 outline = $(MAIN)outline
 conclusion = $(MAIN)conclusion
 
-
-all: main papers
-	$(cc) -jobname=$(job_name) $(main)
-
-
-main:
+all:
 # Latex Compilation 
 	$(cc) $(main)
 
 # Bibtex Compilation
-	$(bb) $(main)
 	$(bb) $(background)
-	$(bb) $(objectives)
-	$(bb) $(contributions)
-	$(bb) $(outline)
-
-# Latex Compilation 
-	$(cc) $(main)
-
-# Bibtex Compilation
-	$(bb) $(main)
-	$(bb) $(background)
-	$(bb) $(objectives)
-	$(bb) $(contributions)
-	$(bb) $(outline)
-
-# Latex Compilation 
-	$(cc) $(main)
-
-
-papers:
 	$(bb) $(PAPERS)example
+
+# Latex Compilation 
+	$(cc) $(main)
+
+# Bibtex Compilation
+	$(bb) $(background)
+	$(bb) $(PAPERS)example
+# Latex Compilation 
+	$(cc) $(main)
+	$(cc) -jobname=$(job_name) $(main)	
 clear:
 	rm $(latex_auto_generate)
 
