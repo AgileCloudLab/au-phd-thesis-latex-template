@@ -46,6 +46,32 @@ In this section we explain the usage of some special LaTeX packages used in the 
 
 ## xcolor -> svgnames, dvinames
 
+# Useful packages not include in the template
+
+## Todo notes
+
+This package allows you use `\todo{comment}`, `\missingfigure{desc}`, and so on. 
+The original template came with this configuration for todonotes
+
+```latex
+\usepackage[colorinlistoftodos,textwidth={\thesisPaperMarginInner - 2mm}]{todonotes}
+% \usepackage[colorinlistoftodos,textwidth={\thesisPaperMarginInner - 2mm},disable]{todonotes}
+\newcommand{\todonote}[2]{
+	\todo[inline, color=cyan, caption={\Partname~$>$ \Chaptername~$>$  #1}]{
+		\begin{minipage}[t]{\linewidth}
+			\textbf{#1}:
+			#2
+		\end{minipage}
+	}
+}
+\newcommand{\todonotes}[2]{\todonote{#1}{#2}}
+%\newcommand{\note}[2]{#1 : #2}
+\newcommand{\comment}[1]{\todo[size=\scriptsize]{#1}}
+\newcommand{\todoref}[1]{\todo[color=green, size=\tiny, caption={\Partname~$>$ \Chaptername~$>$ #1}]{Ref: #1}}
+\newcommand{\tbc}{\todo[inline, color=yellow, caption={\Partname~$>$ \Chaptername~$>$ To be continued}]{To be continued...}}
+\newcommand{\TBC}{\tbc}
+\newcommand{\pageplaceholder}[1]{\todo[inline, color=red, caption={Placeholder: #1}]{Start of placehoder \\ \vspace{5cm} \huge{#1} \\ \vspace{5cm} \normalsize{End of placeholder}}}
+```
 
 
 
