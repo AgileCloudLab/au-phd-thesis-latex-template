@@ -2,7 +2,11 @@
 % Purpose: PhD Thesis LaTeX template
 % Institution: Aarhus University Department of Electrical and Computer Engineering
 % Website: https://github.com/AgileCloudLab/au-phd-thesis-latex-template/
-% The template provides a base skeleton for 
+% The template provides a base skeleton for a PhD thesis for students
+% at ECE at Aarhus University.
+%
+% The template is based on the EDOC Template version 2011 but has bee update to use
+% modern LaTeX packages.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -143,32 +147,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] cite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Improved citation 
 \usepackage{cite}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] cite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] cite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%% CHAPTER HEADER %%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Custom part, chapter and section design %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[explicit]{titlesec}
-
-
-
-
-
-
 
 \newcommand*\chapterlabel{}
 %\renewcommand{\thechapter}{\Roman{chapter}}
@@ -220,17 +202,17 @@
    \gdef\partlabel{}
   } % code before the title body
 
-
 \titleformat{\section}[hang]
 {\normalfont\Large\bfseries\color{AU_Black}}
 {\thesection\hskip 11pt}
 {0em}
 {#1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Custom part, chapter and section design %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] URL include %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Helps including url's in bibtex and in text itself 
 \usepackage[hyphens]{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [END] URL include %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Include custom settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{template/settings_custom}
@@ -240,10 +222,7 @@
 \input{template/commands}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [STOP] Include our commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% [START] Set up External and Internal References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \usepackage{hyperref}
 \hypersetup{pdfborder={0 0 0},
 %	colorlinks=true,
